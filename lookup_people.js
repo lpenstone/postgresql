@@ -13,7 +13,7 @@ const client = new pg.Client({
 
 const search = process.argv.slice(2);
 
-function output(result){
+const output = (result) => {
   let num_message = `Found ${result.rows.length} person(s) by the name '${search}':`;
   console.log(num_message);
   for (let row in result.rows){
