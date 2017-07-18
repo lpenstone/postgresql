@@ -15,10 +15,10 @@ const knex = require('knex')({
 const search = process.argv.slice(2);
 
 knex('famous_people').insert([{first_name: search[0], last_name: search[1], birthdate: '2017-01-01'}])
-.asCallback(function(err, result) {
+.asCallback((err, result) => {
   if (err) return console.error(err);
     knex.select('*').from('famous_people')
-      .asCallback(function(err, result) {
+      .asCallback((err, result) => {
       if (err) return console.error(err);
         console.log(result[result.length - 1]);
         knex.destroy();

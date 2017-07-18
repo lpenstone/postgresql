@@ -29,7 +29,7 @@ const output = (result) => {
 
 
 knex('famous_people').where('first_name', search[0]).orWhere('last_name', search[0])
-.asCallback(function(err, result) {
+.asCallback((err, result) => {
   if (err) return console.error(err);
     console.log('Searching...');
     output(result);
