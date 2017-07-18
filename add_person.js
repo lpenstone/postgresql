@@ -14,7 +14,10 @@ const knex = require('knex')({
 
 const search = process.argv.slice(2);
 
-knex('famous_people').insert([{first_name: search[0], last_name: search[1], birthdate: '2017-01-01'}])
+knex('famous_people').insert([{
+                first_name: search[0],
+                last_name: search[1],
+                birthdate: '2017-01-01'}])
 .asCallback((err, result) => {
   if (err) return console.error(err);
     knex.select('*').from('famous_people')
